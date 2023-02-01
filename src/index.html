@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" oncontextmenu="return false">
+  <head>
+    <meta charset="utf-8" />
+    <title>HYALO4 Start</title>
+    <meta name="description" content="Demo Presentation" />
+    <meta name="author" content="Mahmoud Mokhtar" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- The menu overlay -->
+    <div id="menu" class="overlay">
+      <!-- Overlay content -->
+      <div class="overlay-content">
+        <div class="row justify-content-center">
+          <div class="col-11 mb-4">
+            <a
+              class="btn btn-primary btn-lg text-white btn-block"
+              onclick="navigateToSlide(0)"
+              >Cover</a
+            >
+          </div>
+          <div class="col-11 mb-4">
+            <a
+              class="btn btn-primary btn-lg text-white btn-block"
+              onclick="navigateToSlide(1)"
+              >Indication</a
+            >
+          </div>
+          <div class="col-11 mb-4">
+            <a
+              class="btn btn-primary btn-lg text-white btn-block"
+              onclick="navigateToSlide(2)"
+              >Composition</a
+            >
+          </div>
+          <div class="col-11 mb-4">
+            <a
+              class="btn btn-primary btn-lg text-white btn-block"
+              onclick="navigateToSlide(3)"
+              >Compraison</a
+            >
+          </div>
+          <div class="col-11 mb-4">
+            <a
+              class="btn btn-primary btn-lg text-white btn-block"
+              onclick="navigateToSlide(5)"
+              >Avantages</a
+            >
+          </div>
+          <div class="col-11 mb-4">
+            <a
+              class="btn btn-primary btn-lg text-white btn-block"
+              onclick="navigateToSlide(6)"
+              >Closing</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="secondary-menu"
+      style="
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1000;
+        right: 0;
+        top: 0;
+        background-color: #fff;
+        background-repeat: no-repeat;
+        overflow-x: hidden;
+        transition: 0.3s;
+        -webkit-box-shadow: -7px 0px 16px -6px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: -7px 0px 16px -6px rgba(0, 0, 0, 0.75);
+        box-shadow: -7px 0px 16px -6px rgba(0, 0, 0, 0.75);
+      "
+    >
+      <!-- Overlay content -->
+      <div class="secondary-overlay-content text-center mt-5 p-1">
+        <div class="col-12 mb-5 px-2 mt-5">
+          <a onclick="showReferences();" class="btn btn-lg btn-primary w-100"
+            ><img src="./assets/info.png" class="w-100 pt-2"
+          /></a>
+        </div>
+        <div class="col-12 mb-5 px-2">
+          <a onclick="showModal();" class="btn btn-primary w-100"
+            ><img src="./assets/reference.png" class="w-100 pt-2"
+          /></a>
+        </div>
+        <!-- <div class="col-12 mb-3 px-2">
+        <a onclick="openPDF('nebilet-plus-jordan-smpc.pdf','nebilet-plus-jordan-smpc.pdf')"
+          class="btn btn-primary w-100"><img src="./assets/smpc.png" class="w-100 pt-2" /></a>
+      </div> -->
+      </div>
+    </div>
+
+    <button id="menu-btn" type="button" onclick="toggleMenu()">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </button>
+    <button
+      id="secondary-menu-btn"
+      type="button"
+      onclick="showSecondaryMenu()"
+    ></button>
+    <div
+      style="
+        position: fixed;
+        height: fit-content;
+        width: 100vw;
+        background: #00578c;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        bottom: 0;
+        z-index: 3;
+      "
+      class="p-3"
+    >
+      <button id="close-btn" onclick="closePresentation()" style="height: 5vh">
+        <img src="./assets/logo.png" class="w-100 h-100" />
+      </button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title">References</h1>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <h1 aria-hidden="true">&times;</h1>
+            </button>
+          </div>
+          <div class="modal-body"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="slides h-100 w-100 transform-no inset-no">
+        <section data-section-name="Cover" data-slide-name="1" class="h-100">
+          <div
+            style="
+              background-image: url(./assets/S1-Bg.png);
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: left center;
+              padding: 10% 10% 0 45%;
+            "
+            data-animation="fadeIn"
+            style="animation-delay: 0.2s"
+            class="w-100 h-100"
+          >
+            <div
+              class="w-100"
+              data-animation="fadeInRight"
+              style="animation-delay: 0.7s"
+            >
+              <div>
+                <img src="./assets/S1-03.png" class="w-100" />
+              </div>
+              <div class="mt-3">
+                <h1 style="font-weight: 900 !important; font-size: 3vh">
+                  FORMULATION UNIQUE POUR LA PROMOTION DE LA CICATRISATION ET LA
+                  PRÉPARATION SÉLECTIVE DU LIT DE LA PLAIE
+                </h1>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          data-section-name="Indicaation"
+          data-slide-name="2"
+          class="w-100 h-100 d-flex align-items-center py-0 flex-column p-5"
+        >
+          <div class="mt-3">
+            <img
+              src="./assets/S2-01.png"
+              class="w-100"
+              data-animation="fadeIn"
+              style="max-height: 15vh"
+            />
+          </div>
+          <div class="mt-4 w-100" data-animation="fadeInLeft">
+            <img src="./assets/S2-11.png" class="w-100" />
+          </div>
+          <div class="d-flex px-5 row">
+            <div class="col-2">
+              <img src="./assets/S2-03.png" class="w-100" />
+            </div>
+            <div style="margin-left: -3%; margin-top: 6vh" class="col-10">
+              <h1
+                style="
+                  font-weight: 900 !important;
+                  font-size: 5vh;
+                  animation-delay: 0.1s;
+                "
+                data-animation="fadeIn"
+                >Indication</h1
+              >
+              <div
+                class="d-flex mt-4"
+                style="animation-delay: 0.2s; padding-left: 6%"
+                data-animation="fadeInRight"
+              >
+                <div class="mt-1 mr-4">
+                  <img src="./assets/arrow.png" />
+                </div>
+                <h1 style="color: #000; font-size: 2.5vh">
+                  Prise en charge locale des ulcères chroniques (Escarres,
+                  ulcères vasculaires des jambes, Pied diabétique).<br />
+                  En particulier, il est destiné à fournir un environnement
+                  humide optimal et une préparation du lit de la plaie qui
+                  favorise le processus de cicatrisation naturel
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-100 mt-2"
+            data-animation="fadeIn"
+            style="animation-delay: 1s"
+          >
+            <img src="./assets/S2-12.png" class="w-100" />
+          </div>
+        </section>
+        <section
+          data-section-name="Composition"
+          data-slide-name="3"
+          class="w-100 h-100 d-flex align-items-center py-0 flex-column p-5"
+        >
+          <div class="mt-3">
+            <img
+              src="./assets/S2-01.png"
+              class="w-100"
+              style="max-height: 15vh"
+              data-animation="fadeIn"
+            />
+          </div>
+          <div class="mt-4 w-100">
+            <img src="./assets/S2-11.png" class="w-100" />
+          </div>
+          <div class="w-100 px-5 d-flex flex-column align-items-center">
+            <h1
+              style="
+                font-size: 5vh;
+                font-weight: 800 !important;
+                text-align: left;
+              "
+              class="w-100"
+            >
+              Composition
+            </h1>
+            <img
+              src="./assets/S3-10.png"
+              class="my-4"
+              style="max-height: 20vh; animation-delay: 0.7s"
+              data-animation="fadeIn"
+            />
+          </div>
+          <div class="row mt-5">
+            <div
+              class="col-6"
+              data-animation="fadeInLeft"
+              style="animation-delay: 0.2s"
+            >
+              <h2 style="font-size: 2.5vh; font-weight: 800 !important"
+                >ACIDE HYALURONIQUE (AH) -COMPOSANT PRINCIPAL<br />
+                (Poids moléculaire 200 kDa)</h2
+              >
+              <div class="d-flex mt-4" style="color: #000; font-size: 2.5vh">
+                <div class="mt-1 mr-4">
+                  <img src="./assets/arrow.png" />
+                </div>
+                <p style="font-size: 1.9vh">
+                  Crée un environnement humide pour une réparation tissulaire
+                  optimale (1,2
+                </p>
+              </div>
+              <div class="d-flex mt-4" style="color: #000; font-size: 2.5vh">
+                <div class="mt-1 mr-4">
+                  <img src="./assets/arrow.png" />
+                </div>
+                <p style="font-size: 1.9vh">
+                  Génère un microenvironnement favorisant la sécrétion de
+                  facteurs de croissance, prolifération et migration des
+                  fibroblastes, des cellules endothéliales, kératinocytes et
+                  angiogenèse (2,3)
+                </p>
+              </div>
+              <div class="d-flex mt-4" style="color: #000; font-size: 2.5vh">
+                <div class="mt-1 mr-4">
+                  <img src="./assets/arrow.png" />
+                </div>
+                <p style="font-size: 1.9vh">
+                  Diminue le temps de cicatrisation causant par conséquent une
+                  réduction du temps et des dépenses de soins (4,5,6)
+                </p>
+              </div>
+            </div>
+            <div
+              class="col-6"
+              data-animation="fadeInRight"
+              style="animation-delay: 0.2s"
+            >
+              <h2 style="font-size: 2.5vh; font-weight: 800 !important"
+                >COLLAGÉNASE DE SOUCHE VIBRIO ALGINOLYTICUS
+              </h2>
+              <div class="d-flex mt-4" style="color: #000; font-size: 2.5vh">
+                <div class="mt-1 mr-4">
+                  <img src="./assets/arrow.png" />
+                </div>
+                <p style="font-size: 1.9vh">
+                  Enzyme hautement purifiée, dégrade les tissus fibrineux et
+                  nécrotiques contribuant à la préparation du lit de la plaie
+                  (7)
+                </p>
+              </div>
+              <div class="d-flex mt-4" style="color: #000; font-size: 2.5vh">
+                <div class="mt-1 mr-4">
+                  <img src="./assets/arrow.png" />
+                </div>
+                <p style="font-size: 1.9vh">
+                  La collagénase contenue dans Hyalo4 Start est pure à 99 %.
+                  L'absence de protéase non spécifique, entraine une action
+                  totalement spécifique sans dermatite gênante autour de la
+                  plaie(7)
+                </p>
+              </div>
+              <div class="d-flex mt-4" style="color: #000; font-size: 2.5vh">
+                <div class="mt-1 mr-4">
+                  <img src="./assets/arrow.png" />
+                </div>
+                <p style="font-size: 1.9vh">
+                  L'élimination sélective des tissus nécrotiques ne dégrade pas
+                  les autres composants mineurs, mais structurellement ce sont
+                  des composants importants de la MEC dermique (7)
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          data-section-name="Comparaison"
+          data-slide-name="4"
+          class="h-100 p-5"
+        >
+          <div>
+            <img src="./assets/S4-Nav.png" class="w-100" />
+          </div>
+          <div
+            style="margin-top: 7%; animation-delay: 0.8s"
+            data-animation="fadeIn"
+          >
+            <img src="./assets/S4-12.png" class="w-75 d-block mx-auto" />
+          </div>
+          <div class="px-5">
+            <div class="mt-4" data-animation="fadeInLeft">
+              <img src="./assets/S4-13.png" class="w-100 d-block mx-auto" />
+            </div>
+            <div class="mt-4" data-animation="fadeInRight">
+              <img src="./assets/S4-14.png" class="w-100 d-block mx-auto" />
+            </div>
+            <h4 class="mt-3">*=p<0,0093</h4>
+          </div>
+        </section>
+        <section
+          data-section-name="Comparaison"
+          data-slide-name="5"
+          class="h-100 p-5"
+        >
+          <div>
+            <img src="./assets/S4-Nav.png" class="w-100" />
+          </div>
+          <div class="mt-5" data-animation="fadeInLeft">
+            <img src="./assets/S5-03.png" class="w-75 d-block mx-auto" />
+          </div>
+          <div data-animation="fadeInRight" style="animation-delay: 0.8s">
+            <img src="./assets/S5-07.png" class="w-100" />
+          </div>
+        </section>
+        <section
+          data-section-name="Composition"
+          data-slide-name="6"
+          class="w-100 h-100 d-flex align-items-center py-0 flex-column p-5"
+        >
+          <div class="mt-3">
+            <img
+              src="./assets/S2-01.png"
+              class="w-100"
+              style="max-height: 15vh"
+              data-animation="fadeIn"
+            />
+          </div>
+          <div class="mt-3">
+            <img
+              src="./assets/S6-07.png"
+              class="w-100"
+              data-animation="fadeInLeft"
+              style="animation-delay: 0.4s"
+            />
+          </div>
+        </section>
+        <section
+          data-section-name="Composition"
+          data-slide-name="7"
+          class="w-100 h-100 d-flex align-items-center py-5 flex-column"
+        >
+          <references>
+            <img src="./assets/S7.png" class="w-100" />
+          </references>
+          <div class="mt-3">
+            <img
+              src="./assets/S2-01.png"
+              class="w-100"
+              style="max-height: 15vh"
+              data-animation="fadeIn"
+            />
+          </div>
+          <div
+            class="mt-3 w-100 h-100"
+            style="
+              background-image: url(./assets/S7-Bg.png);
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: right center;
+              padding-top: 15%;
+              padding-left: 10%;
+              padding-right: 30%;
+              animation-delay: 0.2s;
+            "
+            data-animation="fadeIn"
+          >
+            <div data-animation="fadeInLeft" style="animation-delay: 400ms">
+              <div class="d-flex mt-4" style="color: #000; font-size: 2.5vh">
+                <div class="mt-1 mr-4">
+                  <img src="./assets/arrow.png" />
+                </div>
+                <h2 style="font-size: 2.4vh; font-weight: 800 !important">
+                  Très fluide, doux et simple à appliquer <sup>(1)</sup>
+                </h2>
+              </div>
+              <div class="d-flex mt-4" style="color: #000; font-size: 2.5vh">
+                <div class="mt-1 mr-4">
+                  <img src="./assets/arrow.png" />
+                </div>
+                <h2 style="font-size: 2.4vh; font-weight: 800 !important">
+                  Pas d'inconfort ni de douleur pour le patient<sup>(8)</sup>
+                </h2>
+              </div>
+            </div>
+            <h2
+              style="
+                font-size: 2.8vh;
+                font-weight: 800 !important;
+                margin-top: 30%;
+              "
+            >
+              Favorise la cicatrisation tout en préparant le lit de la plaie<sup
+                >(1)</sup
+              >
+            </h2>
+            <h5 class="w-100 mt-5 pt-5" style="text-align: right; color: #000"
+              ><span style="color: var(--primary)">Stockage</span><br />
+              Conserver à une température ne dépassant pas 30 °C. Ne pas
+              congeler.</h5
+            >
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
